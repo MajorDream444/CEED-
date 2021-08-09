@@ -1,0 +1,20 @@
+function getInitData(
+        string calldata _name,
+        string calldata _symbol,
+        address _owner,
+        uint256 _initialSupply
+    )
+        external pure returns (bytes memory _data)
+        
+        
+        
+        function initToken(bytes calldata _data) public override
+        
+        
+        function initToken(
+    string memory _name, 
+    string memory _symbol, 
+    address _owner, 
+    uint256 _initialSupply
+) 
+    public override        
