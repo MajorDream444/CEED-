@@ -1,0 +1,1 @@
+function getTokenTemplate(uint256 _templateId) public view returns (address tokenTemplate)
