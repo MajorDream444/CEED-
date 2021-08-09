@@ -1,0 +1,9 @@
+function initToken(
+      string memory _name,
+      string memory _symbol,
+      address _owner,
+      uint256 _initialSupply
+)
+      public override
+      
+      function mint(address to, uint256 amount) public virtual
