@@ -1,0 +1,7 @@
+function deployToken(
+        uint256 _templateId,
+        address payable _integratorFeeAccount
+    )
+        public
+        payable
+        returns (address token)
