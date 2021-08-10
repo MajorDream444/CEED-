@@ -1,0 +1,2 @@
+function tokensClaimable(address _user) public view returns (uint256)
+Returns Auction price in any time 
