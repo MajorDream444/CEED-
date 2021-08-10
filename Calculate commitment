@@ -1,0 +1,1 @@
+function calculateCommitment(uint256 _commitment) public view returns (uint256)
