@@ -1,0 +1,57 @@
+//Miso MasterChefV2 Contract
+//Address
+​
+
+//Init Function
+function init(IERC20 dummyToken) external
+/Deposits a dummy tokens to MasterChef contract. This is required because MasterChef holds the minting rights for SUSHI. Any balance of transaction sender from dummyToken is transferred. The allocation point for the pool on MCV1 is the total allocation point for all pools that receive double incentives./
+
+//Deposit and withdraw Functions
+function deposit(uint256 pid, uint256 amount, address to) public
+/Parameter
+
+Description
+
+pid
+
+The index number of the pool.
+
+amount
+
+Deposit amount number.
+
+to
+
+Address of the deposit owner/.
+
+//Deposit LP tokens to MasterChef for SUSHI allocation.
+
+function withdraw(uint256 pid, uint256 amount, address to) public
+/Parameter
+
+Description
+
+pid
+
+The index number of the pool.
+
+amount
+
+Withdraw amount number.
+
+to
+
+Address to withdraw to.
+
+Withdraw LP tokens from MasterChef./
+
+//Read-Only Functions
+
+function pendingSushi(uint256 _pid, address _user) external view returns (uint256)
+//View function to see pending SUSHI rewards for given pool Id and user.
+
+function sushiPerBlock() public view returns (uint256 amount)
+//Calculates and returns the amount of SUSHI per block.
+
+
+
