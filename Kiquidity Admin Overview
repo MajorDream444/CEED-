@@ -1,0 +1,18 @@
+//Admin Functions Overview
+//Pool Liquidity Contract
+function withdrawLPTokens() external returns (uint256 liquidity)
+//All the LPs are withdrawn to set wallet address.
+//Requires Operator Role.
+
+function withdrawDeposits() external
+//If there is no launch of liquidity pool, this function withdraws the deposits of WETH and token to the wallet.
+//Requires Operator Role.
+
+function setAuction(address _auction) external
+//Assigns auction address.
+//Requires Operator Role.
+
+function launchLiquidityPool() external  returns (uint256)
+//Creates LP from the assets deposited.
+//Requires Operator Role.
+
