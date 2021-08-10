@@ -1,0 +1,104 @@
+//Crowdsale Smart Contract
+//Address
+​
+
+//Read-Only Functions
+function isOpen() public view returns (bool)
+//Returns true if the crowdsale is currently in progress
+
+function auctionSuccessful() public view returns (bool)
+//Returns true if the crowdsale has reached the goal of raising a specified amount
+
+ function calculateCommitment(uint256 _commitment)
+//Calculates the commitment the user can make with constraint that it is not greater than the amount available to commit.
+
+function tokensClaimable(address _user) public
+//The amount of token a user is available to claim
+
+function tokenPrice() public view returns (uint256) 
+//Current price of the token
+
+//init function
+function initCrowdsale(
+        address _funder,
+        address _token,
+        address _paymentCurrency,
+        uint256 _totalTokens,
+        uint256 _startTime,
+        uint256 _endTime,
+        uint256 _rate,
+        uint256 _goal,
+        address _admin,
+        address _pointList,
+        address payable _wallet
+    ) public
+/Name
+
+Description
+
+_funder
+
+The address that funds the auction
+
+_token
+
+The token that needs to be sold
+
+_paymentCurrency
+
+The currency the Crowdsale accepts as payment. Can be ETH or token
+
+_totalTokens
+
+The total number of tokens for Crowdsale
+
+_startTime
+
+Crowdsale start time
+
+_endTime
+
+Crowdsale end time
+
+_rate
+
+Number of token units a buyer gets per wei or token
+
+_goal
+
+Minimum amount of funds to be raised in weis or tokens
+
+_admin
+
+The Address with Admin Privileges
+
+_pointlist
+
+Gives point to estimate how much a investor can invest. Can be zero address if not required
+
+_wallet
+
+Address where collected funds will be forwarded to/
+
+function initMarket(bytes calldata _data) public
+/Receives bytes of data which is abi decoded into respective parameters. These parameters are sent to the initCrowdsale function to initialize crowdsale./
+
+//Buy a token
+function commitEth(
+        address payable _beneficiary,
+        bool readAndAgreedToMarketParticipationAgreement
+    ) 
+/A gateway to buy a token using Eth as a payment currency. Here the payment currency should be ETH address and beneficiary balance of the token is incremented as per value of wei sent/
+
+function commitTokens(uint256 _amount, bool readAndAgreedToMarketParticipationAgreement) public 
+/A gateway to buy token using a specific ERC20 Token as payment currency. Here the payment currency should be the ERC20 Token and beneficiary balance of the token is incremented proportional to the amount of token/
+
+//Finalize sale
+function finalize() public
+/We can finalize the market auction if we have the required role or the time for auction has expired. If the auction is successfully finalized, the payment is forwarded to the specified wallet. If the auction is not successful, all the auction token is sent back to the wallet./
+
+function withdrawTokens(address payable beneficiary) public 
+/This function delivers the token to beneficiary if the sale is successful ie. goal is reached. If the sale does not reach the goal it returns the payment back to the beneficiary/
+
+function cancelAuction() public
+/Can call this function to cancel the auction if need be. Only the admin can cancel the auction. If the auction is finalized or fund is already raised, the auction can not be cancelled./
