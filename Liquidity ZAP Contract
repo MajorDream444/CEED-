@@ -1,0 +1,52 @@
+//Liquidity ZAP Contract
+//Address
+​
+
+//Init Function
+function initUniswapZAP(
+    address token, 
+    address WETH, 
+    address tokenWethPair
+) 
+    public
+/Parameter
+
+Description
+
+token
+
+Address of the token from LP pair.
+
+WETH
+
+Address of WETH.
+
+tokenWethPair
+
+Address of the LP pair./
+
+//Initializes LP addresses.
+
+//ZAP and unZAP Functions
+
+function zapETH() external payable returns (uint256 liquidity)
+
+//Adds liquidity taking only ETH tokens.
+
+function zapTokens(uint amount) external returns (uint256 liquidity)
+
+//Adds liquidity taking only Tokens.
+
+function unzap() external returns  (uint amountToken, uint amountETH)
+//Unzaps LP to respective Token and ETH amounts.
+
+function unzapToETH() external returns (uint amount)
+//Unzaps LP to ETH only.
+
+function unzapToTokens() external returns (uint amount)
+//Unzaps LP to Token only.
+
+//Read-Only Functions
+function getLPTokenPerEthUnit(uint ethAmt) public view  returns (uint liquidity)
+//Returns how many LP tokens is user able to get with given ETH amount.
+
