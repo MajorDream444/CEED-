@@ -1,0 +1,101 @@
+//Gnosis Safe Factory Contract
+//Address
+​
+
+//Init Function
+function initGnosisVault(
+    address _accessControls, 
+    address _safeGnosis, 
+    address _proxyFactory
+) 
+    public
+/Parameter
+
+Description
+
+_accessControls
+
+AccessControls contract address.
+
+_safeGnosis
+
+SafeGnosis contract address.
+
+_proxyFactory
+
+ProxyFactory contract address./
+
+//Initializes Gnosis Vault with safe, proxy and access controls contracts.
+
+//Safe Creation Function
+function createSafe(
+        address[] calldata _owners,
+        uint256 _threshold,
+        address to,
+        bytes calldata data,
+        address fallbackHandler,
+        address paymentToken,
+        uint256 payment,
+        address payable paymentReceiver
+    )
+        public returns (ISafeGnosis proxy)
+/Parameter
+
+Description
+
+_owners
+
+List of Safe owners.
+
+_threshold
+
+Number of required confirmations for a Safe transaction.
+
+to
+
+Contract address for optional delegate call.
+
+data
+
+Data payload for optional delegate call.
+
+fallbackHandler
+
+Handler for fallback calls to this contract.
+
+paymentToken
+
+Token that should be used for the payment (0 is ETH).
+
+payment
+
+Value that should be paid.
+
+paymentReceiver
+
+Address that should receive the payment (or 0 if tx.origin)./
+
+//Function for creating a new safe.
+
+//Settings Functions
+function setSafeGnosis(address _safeGnosis) external 
+/Parameter
+
+Description
+
+_safeGnosis/
+
+//SafeGnosis contract address.
+
+//Function that can change Gnosis Safe contract address.
+
+function setProxyFactory(address _proxyFactory) external
+Parameter
+
+//Description
+
+_proxyFactory
+
+ProxyFactory contract address.
+
+//Function that can change Proxy Factory contract address.
