@@ -1,0 +1,69 @@
+//Admin Functions Overview
+//Collection of all the Admin functions from MISO Markets
+//Functions common for all the Markets
+
+function finalize() public
+/Manually finalizes the Crowdsale.
+Requires Operator Role./
+
+function setDocument(
+        bytes32 _name, 
+        string calldata _uri, 
+        bytes32 _documentHash
+    ) 
+        external
+/Parameter
+
+Description
+
+_name
+
+Name of the document. It should be unique always.
+
+_uri
+
+Off-chain uri of the document from where it is accessible to investors/advisors to read.
+
+_documentHash
+
+Hash (of the contents) of the document.
+
+Used to attach a new document to the contract, or update the URI or hash of an existing attached document.
+Requires Operator Role./
+
+function removeDocument(bytes32 _name) external
+/Parameter
+
+Description
+
+_name
+
+Name of the document. It should be unique always.
+
+Used to remove an existing document from the contract by giving the name of the document.
+Requires Operator Role./
+
+function setList(address _list) external
+/Parameter
+
+Description
+
+_list
+
+List address.
+
+Sets a pointlist for the crowdsale.
+Requires Operator Role./
+
+function enableList(bool _status) external
+/Parameter
+
+Description
+
+_status
+
+Whether list is enabled or not.
+
+Sets pointlist status - enabled or disabled.
+Requires Operator Role./
+
