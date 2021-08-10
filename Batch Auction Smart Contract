@@ -1,0 +1,93 @@
+Read-Only Functions
+
+function tokenPrice() public view returns (uint256)
+
+//Calculates the price of each token from all commitments.
+
+function tokensClaimable(address _user) public view returns (uint256)
+
+//Displays how many tokens the user is able to claim.
+
+function auctionSuccessful() public view returns (bool)
+
+//Returns True if auction is successful and the raised funds exceeded minimum amount.
+
+function auctionEnded() public view returns (bool)
+
+//Checks if the auction has ended.
+
+function finalizeTimeExpired() public view returns (bool)
+
+//Returns True if 7 days have passed since the end of the auction.
+
+function getBaseInformation() external view returns(
+        address token,
+        uint64 startTime,
+        uint64 endTime,
+        bool finalized
+    )
+    
+//Returns basic informations: auction token, auction start time, auction end time, auction status
+
+//init function
+//Init functions can only be called once
+
+function initAuction(
+        address _funder,
+        address _token,
+        uint256 _totalTokens,
+        uint256 _startTime,
+        uint256 _endTime,
+        address _paymentCurrency,
+        uint256 _minimumCommitmentAmount,
+        address _admin,
+        address _pointList,
+        address payable _wallet
+    ) public
+
+
+/Name 
+Description/
+/_funder
+The address that funds the auction/
+/_token
+The address of the token that needs to be auctioned/
+/_totalTokens
+The total number of tokens for auction/
+/_startTime
+Auction start time/
+/_endTime
+Auction end time/
+/_paymentCurrency
+The currency the batch auction accepts as payment. Can be ETH or token/
+/_minimumCommitmentAmount
+Minimum amount collected at which the auction will be successful/
+/_admin
+Address that can finalize auction/
+/_pointList
+Gives point to estimate how much a investor can invest. Can be zero address if not required/
+/_wallet
+Address where collected funds will be forwarded to/
+
+Buy a token
+
+function commitEth(
+    address payable _beneficiary, 
+    bool readAndAgreedToMarketParticipationAgreement
+) public payable
+//Use ETH to buy tokens. It is a commitment of ether for equivalent amount of token on sale. Requires Market Participation Agreement.
+function commitTokens(
+    uint256 _amount, 
+    bool readAndAgreedToMarketParticipationAgreement
+) public
+
+//Buy Tokens by commiting approved ERC20 tokens to this contract address. Requires Market Participation Agreement.
+//Finalize Auction
+function finalize() public
+/We can finalize the market auction if we have the required role or the time for auction has expired. If the auction is successfully finalized, the payment is forwarded to the specified wallet. If the auction is not successful, all the auction token is sent back to the wallet./
+
+function withdrawTokens(address payable beneficiary) public 
+/If the auction was successful it transfers the claimed tokens to the buyer. If not successful sends the funds back to the buyer./
+
+//function cancelAuction() public
+/Can call this function to cancel the auction if need be. Only the admin can cancel the auction. If the auction is finalized or fund is already raised, the auction can not be cancelled./
