@@ -1,0 +1,2 @@
+//MISOLauncher Contracts//
+Contracts to create liquidity pools for newly created Tokens, enabling users to trade the Tokens against ETH. In the future, trading of Tokens against any ERC20 Token will be available.
