@@ -1,0 +1,72 @@
+//Post Auction Launcher
+/Post Auction Launcher as name says, is a contract for creation and migration of liquidity pools to Sushiswap exchange. To launch the Liquidity Pool we deposit the auction token and payment token and call finalize function./
+
+//Address
+//Launch a liquidity pool
+function depositETH() public payable
+//Deposits WETH to the contract to build a pair with a token for launching a pool.
+
+function depositToken1(uint256 _amount) external
+/Deposit token 1 where, token 1 is the payment currency through which we buy the auctioned token. Typically ETH otherwise, any existing ERC20 Token that is used as Payment Currency for the market/
+
+function depositToken2(uint256 _amount) external
+//Deposit token 2 where, token 2 is the auction token that is to be auctioned.
+
+function finalize() external nonReentrant returns (uint256 liquidity)
+/Launches a liquidity pool. First it checks whether a market has been finalized, if not finalized it finalizes the market! Once called, it launches token1/token2 paired liquidity pool.It intializes the period till which we want the LP tokens to be locked in the contract/
+
+//Withdraw functions
+function withdrawDeposits() external
+/After the liquidity has been launched, there can be remaining token1 and token2 balance in the contract. This function withdraws the remaining balance to the respective wallet/
+
+function withdrawLPTokens() external returns (uint256 liquidity)
+//All the lp tokens from liquidity pool is transferred to the wallet by the account having operator role after the lock period
+
+//Init Function
+function initAuctionLauncher(
+            address _market,
+            address _factneedsory,
+            address _admin,
+            address _wallet,
+            uint256 _liquidityPercent,
+            uint256 _locktime
+    )
+        public
+/Name
+
+Description
+
+_market
+
+Address of the market for which we want to have post auction launcher
+
+_factory
+
+Uniswap V2 factory 
+
+_admin
+
+Address with admin priviledges
+
+_wallet
+
+The address that gets the remaining fund and LP tokens after locktime
+
+_liquidityPercent
+
+Percent of initial auction token liquidity you want to launch.
+
+_locktime
+
+Period that we want to lock the liquidity pool before withdrawing/
+
+//Read Only Functions
+function getTokenAmounts() public view returns (uint256 token1Amount, uint256 token2Amount) 
+//Returns balanced amounts of token1 and token2 to be launched. It performs calculations so that, the relationship between both the token is normal and not skewed.
+
+function getLPBalance() public view returns (uint256)
+//Returns amount of LP token generated and locked in the contract
+
+function getLPTokenAddress() public view returns (address)
+//Returns token1 token2 paired LP token
+
