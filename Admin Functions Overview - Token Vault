@@ -1,0 +1,25 @@
+//Admin Functions Overview
+//Gnosis Safe Factory Contract
+function setSafeGnosis(address _safeGnosis) external 
+/Parameter
+
+Description
+
+_safeGnosis
+
+SafeGnosis contract address./
+
+//Function that can change Gnosis Safe contract address.
+//Requires Operator Role.
+
+function setProxyFactory(address _proxyFactory) external
+/Parameter
+
+Description
+
+_proxyFactory
+
+ProxyFactory contract address./
+
+//Function that can change Proxy Factory contract address.
+//Requires Operator Role.
