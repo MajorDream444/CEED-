@@ -1,0 +1,108 @@
+//Dutch Auction Smart Contract
+//Address
+​
+
+//Read-Only Functions
+
+function tokenPrice() public view returns (uint256)
+
+//Returns the average price of token from all the commitments.
+
+function priceFunction() public view returns (uint256)
+
+//Returns price of the token during auction which proportionally decreases as time elapses. Gives initialized minimum price of token when the auction period ends
+
+function auctionSuccessful() public view returns (bool)
+
+//Returns auction is a success if all the tokens are sold ie. all the tokens are sold at a price greater or equal to minimum price
+
+function tokensClaimable(address _user) public view returns (uint256)
+//Returns number of tokens user is able to claim
+
+function clearingPrice() public view returns (uint256)
+/Returns the clearing ie. current price for the token. The price is based on the proportional price drop of the token. The price drop is based on the difference between start price and minimum price and the time that has been elapsed/
+
+//init function
+//Init functions can only be called once
+
+function initAuction(
+        address _funder,
+        address _token,
+        uint256 _totalTokens,
+        uint256 _startTime,
+        uint256 _endTime,
+        address _paymentCurrency,
+        uint256 _startPrice,
+        uint256 _minimumPrice,
+        address _admin,
+        address _pointList,
+        address payable _wallet
+    ) public
+/Name
+
+Description
+
+_funder
+
+The address that funds the auction
+
+_token
+
+The address of the token that needs to be auctioned
+
+_totalTokens
+
+The total number of tokens for auction
+
+_startTime
+
+Auction start time
+
+_endTime
+
+Auction end time
+
+_paymentCurrency
+
+The currency the dutch auction accepts as payment. Can be ETH or token
+
+_startPrice
+
+Starting price of token for auction. It is the maximum price for the token
+
+_minimumPrice
+
+Minimum price for the token to be successful
+
+_admin
+
+Address with admin privileges
+
+_pointList
+
+Gives point to estimate how much a investor can invest. Can be zero address if not required
+
+_wallet
+
+Address where collected funds will be forwarded to/
+
+//Buy a token
+function commitEth(
+        address payable _beneficiary,
+        bool readAndAgreedToMarketParticipationAgreement
+    )
+        public payable
+//A gateway to buy a token using Eth as a payment currency. It is a commitment of ether for equivalent amount of token on sale
+
+function commitTokens(uint256 _amount, bool readAndAgreedToMarketParticipationAgreement) public 
+//A gateway to buy token using a specific ERC20 token as payment currency. It is a commitment of Payment Currency for equivalent amount of token on sale
+
+//Finalize Auction
+function finalize() public
+/We can finalize the market auction if we have the required role or the time for auction has expired. If the auction is successfully finalized, the payment is forwarded to the specified wallet. If the auction is not successful, all the auction token is sent back to the wallet./
+
+function withdrawTokens() public
+//If the auction was successful it transfers the claimed tokens to the buyer. If not successful sends the funds back to the buyer
+
+function cancelAuction() public
+/Can call this function to cancel the auction if need be. Only the admin can cancel the auction. If the auction is finalized or fund is already raised, the auction can not be cancelled./
