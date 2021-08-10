@@ -1,0 +1,76 @@
+//Miso MasterChef Contract
+//Address
+​
+
+//Init Function
+function initFarm(
+        address _rewards,
+        uint256 _rewardsPerBlock,
+        uint256 _startBlock,
+        address _devaddr,
+        address _admin
+    ) 
+        public override
+/Parameter
+
+Description
+
+_rewards
+
+Reward token address
+
+_rewardsPerBlock
+
+Number of rewards available per block.
+
+_startBlock
+
+Block number when rewards start to be distributed.
+
+_devaddr
+
+Developer address.
+
+_admin
+
+Admin address./
+
+//Initializes Farm with required variables.
+
+//Read-Only Functions
+function poolLength() external view returns (uint256)
+//Returns the number of farming pools.
+
+function getMultiplier(uint256 _from, uint256 _to) public view returns (uint256)
+/Parameter
+
+Description
+
+_from
+
+Block number marking the begining of desired period.
+
+_to
+
+Block number marking the end of desired period.
+
+//Returns reward multiplier over the given _from to _to block.
+
+function pendingRewards(uint256 _pid, address _user) external view returns (uint256)
+
+Parameter
+
+/Description
+
+_pid
+
+Farming pool Id number.
+
+_user
+
+User address.
+
+//Function to display pending rewards for a user.
+
+function blocksRemaining() public view returns (uint256)
+//Returns the number of blocks remaining with the current rewards balance.
