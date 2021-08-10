@@ -1,0 +1,2 @@
+function tokenPrice() public view returns (uint256)
+CALCULATES the Average price of each token from all commitments
