@@ -1,0 +1,2 @@
+function clearingPrice() public view returns (uint256)
+Returns the current price of the token. The current price is proportional to the total period of the auction and the current time elapsed.
