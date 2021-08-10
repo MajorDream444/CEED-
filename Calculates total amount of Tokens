@@ -1,0 +1,2 @@
+function totalTokensCommitted() public view returns (uint256)
+Calculates total amount of tokens committed at current auction price.
