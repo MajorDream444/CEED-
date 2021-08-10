@@ -1,0 +1,1 @@
+function tokenPrice() public view returns (uint256)
