@@ -1,0 +1,99 @@
+//Admin Functions Overview
+//MasterChef Contract
+function addToken(uint256 _allocPoint, IERC20 _lpToken, bool _withUpdate) public
+/Parameter
+
+Description
+
+_allocPoint
+
+Number of allocation points for the new LP pool.
+
+_lpToken
+
+LP token contract address.
+
+_withUpdate
+
+Whether update all pools or not./
+
+/Add a new LP to the pool.
+Requires Admin Role./
+
+function set(uint256 _pid, uint256 _allocPoint, bool _withUpdate) public
+/Parameter
+
+Description
+
+_pid
+
+Farming pool Id number.
+
+_allocPoint
+
+New number of allocation points.
+
+_withUpdate
+
+Whether update all pools or not.
+
+Update the given pools token allocation point.
+Requires Operator Role./
+
+//MasterChefV2 Contract
+
+function add(
+    uint256 allocPoint, 
+    IERC20 _lpToken, 
+    IRewarder _rewarder
+) 
+    public onlyOwner
+/Parameter
+
+Description
+
+allocPoint
+
+Allocation point number of the new LP.
+
+_lpToken
+
+LP token address.
+
+_rewarder
+
+Address of the reward contract.
+
+Add a new LP to the pool.
+Caller must be Owner of the contract./
+
+function set(
+    uint256 _pid, 
+    uint256 _allocPoint, 
+    IRewarder _rewarder, 
+    bool overwrite
+) 
+    public onlyOwner
+/Parameter
+
+Description
+
+_pid
+
+Index of the pool.
+
+_allocPoint
+
+New allocation point number of the LP.
+
+_rewarder
+
+Address of the rewarder delegate.
+
+overwrite
+
+True if _rewarder should be set. Otherwise _rewarder is ignored.
+
+Update the given pool's SUSHI allocation point and IRewarder contract.
+Caller must be Owner of the contract./
+
