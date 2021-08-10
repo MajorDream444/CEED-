@@ -1,0 +1,120 @@
+//Token Vault Contract
+//Address
+​
+
+//Lock and Unlock Functions
+function lockTokens(
+        address _tokenAddress,
+        uint256 _amount,
+        uint256 _unlockTime,
+        address payable _withdrawer
+    )
+        public returns (uint256 _id)
+/Parameter
+
+Description
+
+_tokenAddress
+
+Address of the token locked.
+
+_amount
+
+Number of tokens locked.
+
+_unlockTime
+
+Timestamp number marking when tokens get unlocked.
+
+_withdrawer
+
+Address where tokens can be withdrawn after unlocking./
+
+//Function for locking tokens in the vault.
+
+function withdrawTokens(
+        address _tokenAddress,
+        uint256 _index,
+        uint256 _id,
+        uint256 _amount
+    )
+        external
+/Parameter
+
+Description
+
+_tokenAddress
+
+Address of the token to withdraw.
+
+_index
+
+Index number of the list with Ids.
+
+_id
+
+Id number of the locked item.
+
+_amount
+
+Number of tokens to withdraw./
+
+//Function for withdrawing tokens from the vault.
+
+//Read-Only Functions
+function getItemAtUserIndex(
+        uint256 _index,
+        address _tokenAddress,
+        address _user
+    )
+        external view returns (uint256, uint256, address, uint256)
+/Name
+
+Description
+
+_index
+
+Index number of the list with Item ids.
+
+_tokenAddress
+
+Address of the token corresponding to this Item.
+
+_user
+
+User address./
+
+//Function to retrieve data from the Item under user index number.
+
+function getUserLockedItemAtIndex(
+        address _user, 
+        uint256 _index
+    ) 
+        external view returns (address)
+/Name
+
+Description
+
+_user
+
+User address.
+
+_index
+
+Index number.
+
+Function to retrieve token address at desired index for the specified user./
+
+function getLockedItemAtId(uint256 _id) 
+    external 
+    view 
+    returns (uint256, uint256, address, uint256)
+/Name
+
+Description
+
+_id
+
+Id number./
+
+//Function to retrieve all the data from Item struct under given Id.
