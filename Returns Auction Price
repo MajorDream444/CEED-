@@ -1,0 +1,2 @@
+function priceFunction() public view returns (uint256)
+Returns auction price in any time.
